@@ -1,0 +1,76 @@
+@import '../node_modules/ress/ress.css'
+@import 'nib'
+@import './functions.styl'
+@import './vars.styl'
+
+html
+  overflow auto
+
+*
+  position relative
+
+body
+  size 100vw 100vh
+  background-color $color-background-light-lighter
+  color $color-content-dark-lighter
+  .navbar
+    display flex
+    flex-flow row nowrap
+    size 100% $font-size-medium+$grid*4
+    font-size $font-size-medium
+    line-height @height
+    padding 0 $grid*2
+    .bg-mask
+      size 100%
+      z-index 3000
+      absolute top 0 left 0
+      background-color $color-background-light-darker
+    & > .label
+      padding 0 $grid*2
+      line-height @height
+      font-size @font-size
+      z-index 5000
+    .dropdown-button
+      display flex
+      flex-flow row nowrap
+      border-right $border-width-tiny solid $color-border-medium-lighter
+      border-left @border-right
+      padding 0 $grid*2
+      background-color $color-background-light-darker
+      z-index 5000
+      &:hover
+        background-color $color-background-light-darkest
+      i.material-icons
+        line-height @height
+        font-size $font-size-large
+        margin 0 $grid*2 0 0
+      .label
+        line-height @height
+        font-size @font-size
+    .dropdown
+      size 0
+      opacity 0
+      absolute top ($font-size-medium+$grid*4) left 0
+      background-color $color-background-light-lightest
+      border-bottom $border-width-medium solid $color-border-medium
+      border-left @border-bottom
+      border-right @border-bottom
+      z-index 2000
+      transition width $duration-medium $timing-function-ease-in-quart,
+        height $duration-medium $timing-function-ease-in-sine,
+        opacity $duration-medium $timing-function-ease-in-quart,
+        transform $duration-medium $timing-function-ease-in-sine
+      &.opened
+        transform translateX($grid*4)
+        opacity 1
+        size unquote('calc(100vw - ' + $grid*8 + ')') 80vh
+        transition width $duration-medium $timing-function-ease-out-quart,
+          height $duration-medium $timing-function-ease-out-sine,
+          opacity $duration-medium $timing-function-ease-out-quart,
+          transform $duration-medium $timing-function-ease-out-sine
+      .nav-actions
+        display flex
+        flex-flow column nowrap
+        .nav-action
+          size auto $font-size-medium+$grid*2
+          line-height @height

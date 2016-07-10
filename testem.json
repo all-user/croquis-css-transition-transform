@@ -1,0 +1,10 @@
+{
+  "framework": "mocha",
+  "src_files": [
+    "./test/*.test.js"
+  ],
+  "serve_files": [
+    "./test/bundle.js"
+  ],
+  "before_tests": "npm run test:build:js"
+}

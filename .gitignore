@@ -1,0 +1,6 @@
+*.js.map
+*.css.map
+src/index.*
+src/bundle.*
+test/bundle.js
+npm-debug.log

@@ -1,0 +1,5 @@
+dp(depth, options={})
+  inset-value = ''
+  inset-value = 'inset' if options.inset
+  box-shadow: 0 depth depth*2 0 rgba(0,0,0,.12) unquote(inset-value),
+    0 (depth/2*-1) depth*3 0 rgba(0,0,0,.04) unquote(inset-value)

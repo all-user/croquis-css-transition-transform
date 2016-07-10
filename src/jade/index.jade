@@ -1,0 +1,18 @@
+doctype
+html(lang='ja')
+  head
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons", rel="stylesheet")
+    link(href='index.css', type='text/css', rel='stylesheet')
+    script(src='bundle.js')
+  body
+    .navbar
+      .bg-mask
+      span.label SERVICE LOGO
+      .dropdown-button
+        i.material-icons dashboard
+        span.label Dashboard
+      .dropdown
+        .nav-actions
+          for i in [0, 1, 2]
+            .nav-action some action #{i}
+      
