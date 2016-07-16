@@ -56,18 +56,26 @@ body
       border-left @border-bottom
       border-right @border-bottom
       z-index 2000
-      transition width $duration-medium $timing-function-ease-in-quart,
+      transition width $duration-medium $timing-function-ease-in-expo,
         height $duration-medium $timing-function-ease-in-sine,
-        opacity $duration-medium $timing-function-ease-in-quart,
-        transform $duration-medium $timing-function-ease-in-quart
+        opacity $duration-medium $timing-function-ease-in-expo,
+        transform $duration-medium $timing-function-ease-in-expo
       &.opened
         transform translateX($grid*4)
         opacity 1
         size unquote('calc(100vw - ' + $grid*8 + ')') 80vh
-        transition width $duration-medium $timing-function-ease-out-quart,
+        transition width $duration-medium $timing-function-ease-out-expo,
           height $duration-medium $timing-function-ease-out-sine,
-          opacity $duration-medium $timing-function-ease-out-quart,
-          transform $duration-medium $timing-function-ease-out-quart
+          opacity $duration-medium $timing-function-ease-out-expo,
+          transform $duration-medium $timing-function-ease-out-expo
+      .mark
+        absolute bottom 0 right 0
+        size $font-size-large+$grid*2
+        background-color $color-warn
+        border-radius 50%
+        .material-icons
+          font-size $font-size-large
+          line-height @height
       .nav-actions
         display flex
         flex-flow column nowrap
