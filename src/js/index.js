@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import StyleVariables from './StyleVariables.js';
 
 document.addEventListener('DOMContentLoaded', e => {
   const $ = document.querySelector.bind(document);
@@ -13,7 +14,7 @@ document.addEventListener('DOMContentLoaded', e => {
           return self.native.classList.contains('opened');
         }
       };
-      this.setClosedPosition();
+      this.setPosition();
     }
 
     get button() {
@@ -25,12 +26,18 @@ document.addEventListener('DOMContentLoaded', e => {
       this.state.opened ? this.setOpenedPosition() : this.setClosedPosition();
     }
 
+    setPosition() {
+      const offsetLeft = this.button.getBoundingClientRect().left;
+      this.native.style.transform = `translateX(${ offsetLeft }px)`;
+    }
+
     setClosedPosition() {
-      this.native.style.transform = `translateX(${ this.button.getBoundingClientRect().left }px)`;
+      this.native.style.width = '';
     }
 
     setOpenedPosition() {
-      this.native.style.transform = '';
+      const offsetLeft = this.button.getBoundingClientRect().left;
+      this.native.style.width = `calc(100vw - ${ offsetLeft + StyleVariables.grid*4 }px)`;
     }
   }
 

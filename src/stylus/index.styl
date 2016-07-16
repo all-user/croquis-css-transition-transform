@@ -50,32 +50,33 @@ body
     .dropdown
       size 0
       opacity 0
-      absolute top ($font-size-medium+$grid*4) left 0
+      absolute top ($font-size-medium+$grid*6) left 0
       background-color $color-background-light-lightest
       border-bottom $border-width-medium solid $color-border-medium
+      border-top @border-bottom
       border-left @border-bottom
       border-right @border-bottom
       z-index 2000
-      transition width $duration-medium $timing-function-ease-in-expo,
-        height $duration-medium $timing-function-ease-in-sine,
-        opacity $duration-medium $timing-function-ease-in-expo,
-        transform $duration-medium $timing-function-ease-in-expo
+      transition width $duration-medium $timing-function-ease-inout-sine-slower,
+        height $duration-medium $timing-function-ease-inout-sine,
+        opacity $duration-medium $timing-function-ease-inout-sine
       &.opened
-        transform translateX($grid*4)
         opacity 1
-        size unquote('calc(100vw - ' + $grid*8 + ')') 80vh
-        transition width $duration-medium $timing-function-ease-out-expo,
-          height $duration-medium $timing-function-ease-out-sine,
-          opacity $duration-medium $timing-function-ease-out-expo,
-          transform $duration-medium $timing-function-ease-out-expo
+        size 0 80vh
+        transition width $duration-medium $timing-function-ease-inout-sine-faster,
+          height $duration-medium $timing-function-ease-inout-sine,
+          opacity $duration-medium $timing-function-ease-inout-sine
       .mark
         absolute bottom 0 right 0
         size $font-size-large+$grid*2
         background-color $color-warn
         border-radius 50%
+        display flex
+        justify-content center
         .material-icons
           font-size $font-size-large
           line-height @height
+          color $color-content-light
       .nav-actions
         display flex
         flex-flow column nowrap
