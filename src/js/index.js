@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
     setOpenedPosition() {
       const offsetLeft = this.button.getBoundingClientRect().left;
-      this.native.style.width = `calc(100vw - ${ offsetLeft + StyleVariables.grid*4 }px)`;
+      this.native.style.width = `calc(100vw - ${ offsetLeft + StyleVariables.grid()*4 }px)`;
     }
   }
 
