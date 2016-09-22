@@ -1,0 +1,7 @@
+{
+  "foo": "10px",
+  "bar": {
+    "baz": "20px",
+    "qux": "'Helvetica Neue'"
+  }
+}

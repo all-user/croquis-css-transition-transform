@@ -1,13 +1,21 @@
-@import '../node_modules/ress/ress.css'
+// @import '../node_modules/ress/ress.css'
 @import 'nib'
 @import './functions.styl'
 @import './vars.styl'
+
+use('./plugin/lib/add.js')
+
+res = add(10px, 20px)
+p(res)
 
 html
   overflow auto
 
 *
   position relative
+  margin 0
+  padding 0
+  box-sizing border-box
 
 body
   size 100vw 100vh
@@ -83,3 +91,30 @@ body
         .nav-action
           size auto $font-size-medium+$grid*2
           line-height @height
+  .foo
+    relative top 50px left 50px
+    size 400px 400px
+    display flex
+    flex-flow column nowrap
+    .bar,
+    .baz,
+    .qux
+      flex 1 1 auto
+    .bar
+      background-color #3399ac
+    .baz
+      background-color #cc3a20
+    .qux
+      background-color #bee
+      overflow-y auto
+      .size-keeper
+        font-family sans-serif
+        absolute top 0 left 0
+        background-color #bee
+        size 100% auto
+        li
+          display inline-block
+          padding 10px
+          size 100% auto
+          &:nth-child(odd)
+            background-color rgba(255,255,255,.2)
